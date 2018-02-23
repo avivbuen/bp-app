@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Blood Pressure Log</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <link rel="icon" href="favicon.png"/>
+        <style>
+            body{
+                background: #d55050;
+            }
+            .wrap{
+                width: 100%;
+                text-align: center;
+            }
+            #logo{
+                text-align: center;
+                margin: 0 auto;
+                height: 200px;
+                margin-top:50px;
+            }
+            .tb2 {
+                background-color : #e2e2e2;
+                border: 1px solid #000000;
+                width: 230px;
+                font-size: 3em;
+                margin: 2.5px;
+                text-align: center;
+                border-radius: 6px;
+            }
+            .btn{
+                background-color : #2d9929;
+                border: 1px solid #000000;
+                width: 230px;
+                font-size: 3em;
+                margin: 2.5px;
+                text-align: center;
+                border-radius: 6px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="POST"
+        action="https://docs.google.com/forms/d/1Q1NlLXBx2ofLD-azDAS8fPAstQP1gl1rrdeAKLbaaNE"
+        onsubmit="return window.submitGoogleForm(this);" class="wrap">
+            <img id="logo" src="favicon.png"/>
+            <br>
+            <input name="entry.550495536" type="number" class="tb2" placeholder="Sys"/>      
+            <br>
+            <input name="entry.703164118" type="number" class="tb2" placeholder="Dia"/>  
+            <br>
+            <input name="entry.417957409" type="number" class="tb2" placeholder="Pulse"/>    
+            <br>  
+            <input type="submit" value="Save" class="btn"/>      
+        </form>
+        <script>
+                    !function(exports) {
+        exports.submitGoogleForm = submitGoogleForm;
+
+        function submitGoogleForm(form) {
+            try {
+            var data = [].slice.call(form).map(function(control) {
+                return 'value' in control && control.name ?
+                control.name + '=' + (control.value === undefined ? '' : control.value) :
+                '';
+            }).join('&');
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', form.action + '/formResponse', true);
+            xhr.setRequestHeader('Accept',
+                'application/xml, text/xml, */*; q=0.01');
+            xhr.setRequestHeader('Content-type',
+                'application/x-www-form-urlencoded; charset=UTF-8');
+            xhr.send(data);
+            } catch(e) {}
+
+            //form.parentNode.className += ' submitted';
+            alert("Data sent to server");
+            return false;
+        }
+        }(typeof module === 'undefined' ? window : module.exports);
+        </script>
+    </body>
+</html>
